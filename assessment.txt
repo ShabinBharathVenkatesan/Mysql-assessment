@@ -1,0 +1,191 @@
+
+# Create the Table
+CREATE TABLE STUDENT (
+    StdID INT(4) PRIMARY KEY,
+    StdName VARCHAR(30) NOT NULL,
+    Sex VARCHAR(6),
+    Percentage DECIMAL(5,2),
+    SClass INT,
+    Sec CHAR(1),
+    Stream VARCHAR(10),
+    DOB DATE
+);
+
+# Insert Records into the STUDENT Table
+
+INSERT INTO STUDENT VALUES (1001, 'AKSHRA AGARWAL', 'FEMALE', 70, 11, 'A', 'Science', '1996-11-10');
+INSERT INTO STUDENT VALUES (1002, 'ANJANI SHARMA', 'FEMALE', 75, 11, 'A', 'Commerce', '1996-09-18');
+INSERT INTO STUDENT VALUES (1003, 'ANSHUL SAXENA', 'MALE', 78, 11, 'A', 'Commerce', '1996-11-19');
+INSERT INTO STUDENT VALUES (1004, 'AISHWARYA SINGH', 'FEMALE', 79, 11, 'A', 'Commerce', '1996-11-01');
+INSERT INTO STUDENT VALUES (1005, 'AKRITI SAXENA', 'FEMALE', 76, 11, 'A', 'Commerce', '1996-09-20');
+INSERT INTO STUDENT VALUES (1006, 'KHUSHI AGARWAL', 'FEMALE', 77, 11, 'A', 'Commerce', '2003-09-14');
+INSERT INTO STUDENT VALUES (1007, 'MAAHI AGARWAL', 'FEMALE', 74, 11, 'A', 'Science', '1997-04-21');
+INSERT INTO STUDENT VALUES (1008, 'MITALI GUPTA', 'FEMALE', 78, 12, 'A', 'Science', '1997-11-26');
+INSERT INTO STUDENT VALUES (1009, 'NIKUNJ AGARWAL', 'MALE', 58, 12, 'A', 'Science', '1997-07-12');
+INSERT INTO STUDENT VALUES (1010, 'PARKHI', 'FEMALE', 59, 12, 'A', 'Commerce', '1997-12-20');
+INSERT INTO STUDENT VALUES (1011, 'PRAKHAR TIWARI', 'MALE', 43, 12, 'A', 'Science', '1997-04-22');
+INSERT INTO STUDENT VALUES (1012, 'RAGHAV GANGWAR', 'MALE', 58, 12, 'A', 'Commerce', '1997-12-21');
+INSERT INTO STUDENT VALUES (1013, 'SAHIL SARASWAT', 'MALE', 57, 12, 'A', 'Commerce', '1997-08-13');
+INSERT INTO STUDENT VALUES (1014, 'SWATI MISHRA', 'FEMALE', 98, 11, 'A', 'Science', '1996-08-13');
+INSERT INTO STUDENT VALUES (1015, 'HARSH AGARWAL', 'MALE', 58, 11, 'B', 'Science', '2003-08-28');
+INSERT INTO STUDENT VALUES (1016, 'HARSHIT KUMAR', 'MALE', 98, 11, 'B', 'Science', '2003-05-22');
+INSERT INTO STUDENT VALUES (1017, 'JAHANVI KAPOOR', 'MALE', 65, 11, 'B', 'Science', '1997-01-10');
+INSERT INTO STUDENT VALUES (1018, 'STUTI MISHRA', 'MALE', 66, 11, 'C', 'Commerce', '1996-01-10');
+INSERT INTO STUDENT VALUES (1019, 'SURYANSH KUMAR AGARWAL', 'MALE', 85, 11, 'C', 'Commerce', '2007-08-22');
+INSERT INTO STUDENT VALUES (1020, 'TANI RASTOGI', 'FEMALE', 75, 12, 'C', 'Commerce', '1998-01-15');
+INSERT INTO STUDENT VALUES (1021, 'TANISHK GUPTA', 'MALE', 55, 12, 'C', 'Science', '1998-04-11');
+INSERT INTO STUDENT VALUES (1022, 'TANMAY AGARWAL', 'MALE', 57, 11, 'C', 'Commerce', '1998-06-28');
+INSERT INTO STUDENT VALUES (1023, 'YASH SAXENA', 'MALE', 79, 11, 'C', 'Science', '1998-03-13');
+INSERT INTO STUDENT VALUES (1024, 'YESH DUBEY', 'MALE', 85, 12, 'C', 'Commerce', '1998-04-03');
+
+# lab activity- 2
+# To display all the records from the STUDENT table:
+
+SELECT * FROM STUDENT;
+
+
+# SELECT StdName, DOB FROM STUDENT;
+
+SELECT StdName, DOB FROM STUDENT;
+
+
+#To display all students' records where Percentage is greater than or equal to 80 from the STUDENT table:
+SELECT * FROM STUDENT WHERE Percentage >= 80;
+
+#To display StdName, Stream, and Percentage where Percentage of the student is more than 80:
+SELECT StdName, Stream, Percentage FROM STUDENT WHERE Percentage > 80;
+
+
+# To display all records of science students whose Percentage is more than 75 from the STUDENT table:
+SELECT * FROM STUDENT WHERE Stream = 'Science' AND Percentage > 75;
+
+# lab activity-3
+
+# To display the STUDENT table structure:
+DESCRIBE Student;
+
+
+
+# To add a new column (TeacherID as VARCHAR(20)) to the STUDENT table:
+ALTER TABLE Student ADD TeacherID VARCHAR(20);
+
+
+
+# To view the updated structure of the STUDENT table:
+DESC Student;
+
+
+
+# To display all records from the STUDENT table, including the new TeacherID column:
+SELECT * FROM Student;
+
+
+
+# To modify the TeacherID data type from VARCHAR to INTEGER:
+ALTER TABLE Student MODIFY TeacherID INTEGER;
+
+
+
+# To view the modified structure of the STUDENT table:
+DESC Student;
+
+
+
+# To view all records from the STUDENT table after modifying TeacherID:
+SELECT * FROM Student;
+
+
+# lab activity- 4
+
+# To drop (delete) the TeacherID field from the STUDENT table:
+ALTER TABLE Student DROP COLUMN TeacherID;
+
+
+# To subtract 5 from all students' Percentage and display StdName and the updated Percentage:
+SELECT StdName, Percentage - 5 AS Adjusted_Percentage FROM Student;
+
+
+# Using column aliases to display StdName as "Student Name" and DOB as "Date of Birth":
+SELECT StdName AS "Student Name", DOB AS "Date of Birth" FROM Student;
+
+
+# To display the names of all students whose stream is not Science:
+SELECT StdName FROM Student WHERE Stream <> 'Science';
+
+
+# To display StdName and Percentage where Percentage is between 60 and 80:
+SELECT StdName, Percentage FROM Student WHERE Percentage >= 60 AND Percentage <= 80;
+
+
+lab activity - 5
+
+# To update a student's name and percentage where StdID is 1014:
+UPDATE Student SET StdName = 'SWATI VERMA', Percentage = 86 WHERE StdID = 1014;
+
+
+# To delete the record from the STUDENT table where StdID is 1016:
+DELETE FROM Student WHERE StdID = 1016;
+
+
+# SQL statements to demonstrate pattern matching with LIKE and exact matching:
+# to select students whose name starts with "G" followed by one character:
+SELECT * FROM Student WHERE StdName LIKE 'G_';
+
+# To select students whose exact name is "G":
+SELECT * FROM Student WHERE StdName = 'G';
+
+
+# To select students whose name starts with "G":
+SELECT * FROM Student WHERE StdName LIKE 'G%';
+
+# To select students whose name contains "G" anywhere in the name:
+SELECT * FROM Student WHERE StdName LIKE '%G%';
+
+
+# To display all unique streams in the STUDENT table:
+SELECT DISTINCT Stream FROM Student;
+
+
+# To display StdName, Sex, and Stream for students with Percentage between 70 and 80:
+SELECT StdName, Sex, Stream FROM Student WHERE Percentage BETWEEN 70 AND 80;
+
+DO YOURSELF:
+------------
+
+# WRITE A QUERY TO DISPLAY ENAME AND SAL OF EMPLOYEES WHOSE SALARY ARE GREATER THAN OR EQUAL TO 2200?
+SELECT EName, Sal FROM Empl WHERE Sal >= 2200;
+
+# Write a query to display details of employs who are not getting commission?
+SELECT * FROM Empl WHERE Comm IS NULL;
+
+
+# Write a query to display employee name and salary of those employees who don’t have 
+
+their salary in range of 2500 to 4000?
+SELECT EName, Sal FROM Empl WHERE Sal NOT BETWEEN 2500 AND 4000;
+
+
+# Write a query to display the name, job title and salary of employees who don’t have manager?
+SELECT EName, Job, Sal FROM Empl WHERE Mgr IS NULL;
+
+
+# Write a query to display the name of employee whose name contains “A” as third alphabet?
+SELECT EName FROM Empl WHERE EName LIKE '__A%';
+
+
+# Write a query to display the name of employee whose name contains “T” as last alphabet?
+SELECT EName FROM Empl WHERE EName LIKE '%T';
+
+
+# Write a query to display the name of employee whose name contains ”M” as First and 
+
+“L” as third alphabet?
+SELECT EName FROM Empl WHERE EName LIKE 'M_L%';
+
+
+
+# Write a query to display details of employs with the text “Not given”, if commission is null?
+SELECT EName, Job, Sal, IFNULL(Comm, 'Not given') AS Commission FROM Empl;
+
+
+
